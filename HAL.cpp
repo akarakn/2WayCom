@@ -1,15 +1,15 @@
 
 #include "HAL.h"
 
-#include <iostream>
+#include "spdlog/spdlog.h"
 
-HAL::HAL() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+HAL::HAL() { SPDLOG_INFO("API object consturacted"); }
 void HAL::init(std::shared_ptr<I_HalToApp> app) {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  SPDLOG_INFO("{} called", __FUNCTION__);
   m_app = app;
 }
-void HAL::send() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+void HAL::send() { SPDLOG_INFO("{} called", __FUNCTION__); }
 void HAL::receive() {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  SPDLOG_INFO("{} called", __FUNCTION__);
   m_app->sendHalToApp();
 }

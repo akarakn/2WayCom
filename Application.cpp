@@ -1,21 +1,23 @@
 
 #include "Application.h"
 
-#include <iostream>
 #include <memory>
+
+#include "spdlog/spdlog.h"
 
 Application::Application(std::shared_ptr<I_API> api, std::shared_ptr<I_HAL> hal)
     : m_api(api), m_Hal(hal) {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  SPDLOG_INFO("Aplication object consturacted");
 }
 
-void Application::doFun() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+void Application::doFun() { SPDLOG_INFO("{} called", __FUNCTION__); }
 
 void Application::sendHalToApp() {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  SPDLOG_INFO("{} called", __FUNCTION__);
+
   m_api->send();
 }
 void Application::sendApiToApp() {
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
+  SPDLOG_INFO("{} called", __FUNCTION__);
   m_Hal->send();
 }

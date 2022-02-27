@@ -1,12 +1,12 @@
-#include <iostream>
 #include <memory>
 
 #include "API.h"
 #include "Application.h"
 #include "HAL.h"
+#include "spdlog/spdlog.h"
 
 int main(int, char**) {
-  std::cout << "Hello, world!\n";
+  SPDLOG_INFO("Starting");
   auto my_api = std::make_shared<API>();
   auto my_hal = std::make_shared<HAL>();
 
@@ -15,4 +15,5 @@ int main(int, char**) {
   my_hal->init(my_app);
   my_hal->receive();
   my_api->receive();
+  SPDLOG_INFO("Ending");
 }
