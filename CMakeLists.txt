@@ -8,11 +8,11 @@ file(GLOB ALL_SRC
      "*.cpp"
 )
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
+find_package(spdlog)
 add_executable(2WayCom ${ALL_SRC})
-target_link_libraries(2WayCom ${CONAN_LIBS})
+target_link_libraries(2WayCom spdlog::spdlog)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

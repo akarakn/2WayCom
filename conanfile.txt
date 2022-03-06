@@ -2,4 +2,5 @@
 spdlog/1.9.2
 
 [generators]
-cmake
+cmake_find_package
+cmake_paths
