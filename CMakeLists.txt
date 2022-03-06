@@ -14,6 +14,11 @@ find_package(spdlog)
 add_executable(2WayCom ${ALL_SRC})
 target_link_libraries(2WayCom spdlog::spdlog)
 
+
+if(BUILD_TESTING)
+     add_subdirectory(test)
+endif()
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
